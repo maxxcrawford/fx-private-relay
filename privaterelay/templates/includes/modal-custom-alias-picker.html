@@ -1,0 +1,63 @@
+{% load static %}
+{% load ftl %}
+{% ftlconf bundle='privaterelay.ftl_bundles.main' %}
+
+<div class="modal c-modal-wrapper js-modal-custom-alias-picker">
+  <div class="c-modal  t-domain-registration js-custom-alias-picker-form">
+    
+    <div class="c-modal-header t-custom-alias-picker-hero">
+      <div class="c-modal-header-content">
+        <h3>{% ftlmsg 'modal-custom-alias-picker-heading' %}</h3>
+      </div>
+    </div>
+
+    <div class="c-modal-body t-custom-alias-picker-body">
+      <div class="c-superfluous-warning">
+        <img src="{% static 'images/icon-info-pink.svg' %}" alt="">
+        <p>{% ftlmsg 'modal-custom-alias-picker-warning' %}</p>
+      </div>
+      <div class="t-custom-alias-picker-form">
+        <p>{% ftlmsg 'modal-custom-alias-picker-form-heading' %}</p>
+        <div class="t-custom-alias-picker-form-prefix">
+          <label for="customAliasPrefix" class="mzp-u-inline">
+            {% ftlmsg 'modal-custom-alias-picker-form-prefix-label' subdomain='' %}
+          </label>
+          <input required type="text" name="customAliasPrefix" id="customAliasPrefix">
+        </div>
+        <span class="t-custom-alias-suffix">@<b>{{ user_profile.subdomain }}</b>.{{ MOZMAIL_DOMAIN }}</span>
+      </div>
+    </div>
+
+    <div class="c-modal-footer">
+      <button type="submit" disabled class="mzp-c-button mzp-t-product js-modal-custom-alias-picker-submit">
+        {% ftlmsg 'modal-custom-alias-picker-form-submit-label' %}
+      </button>
+      <button type="button" class="mzp-c-button mzp-t-neutral js-modal-custom-alias-picker-cancel">
+        {% ftlmsg 'profile-label-cancel' %}
+      </button>
+    </div>
+  </div>
+
+  <div class="c-modal is-hidden t-domain-registration-success js-domain-registration-success">
+    
+    <div class="c-modal-header t-domain-registration-hero">
+      <div class="c-modal-header-content">
+        <span class="c-modal-header-headline"><img src="{% static 'images/icon-check-green.svg' %}" aria-hidden="true" alt="check mark">{% ftlmsg 'modal-domain-register-success-title' %}</span>
+        <h3><strong class="js-modal-domain-registration-confirmation-domain-preview"></strong></h3>
+        <span class="c-modal-header-headline"><span class="js-modal-domain-registration-confirmation-domain-ending"> </span>{% ftlmsg 'modal-domain-register-success' subdomain='' %}</span>
+      </div>
+    </div>
+
+    <div class="c-modal-body t-domain-registration-body">
+      <img src="{% static 'images/dashboard-onboarding/success-party.svg' %}" aria-hidden="true" alt="party streamers">
+      <p>{% ftlmsg 'modal-domain-register-success-copy' %}</p>
+    </div>
+
+    <div class="c-modal-footer">
+      <button type="button" class="mzp-c-button mzp-t-product js-modal-domain-registration-continue">
+        {% ftlmsg 'profile-label-continue' %}
+      </button>
+    </div>
+  </div>
+
+</div>

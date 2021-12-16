@@ -235,6 +235,14 @@ function addEventListeners() {
     });
   }
 
+  const generateAliasMenuTrigger = document.querySelector(".js-dash-create-new-alias-menu-trigger ");
+  const generateAliasMenuPopup = document.querySelector(".js-dash-create-new-alias-menu-popup ");
+
+  generateAliasMenuTrigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    generateAliasMenuPopup.classList.toggle("hidden");
+  });
+
   const mobileMenuWrapper = document.querySelector(".mobile-menu");
   if (mobileMenuWrapper) {
     const mobileMenuButton = document.querySelector(".mobile-menu-toggle");
